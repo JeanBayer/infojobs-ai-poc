@@ -7,5 +7,5 @@ export interface Offer {
   idioma: string;
   localidad: string;
   modalidad: string;
-  postulados: User[]
+  postulados: User[];
 }

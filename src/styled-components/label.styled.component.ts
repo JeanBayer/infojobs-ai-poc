@@ -8,5 +8,5 @@ export const Label = styled.label`
   flex-direction: column;
   color: #565656;
   line-height: 15px;
-  justify-content: space-between;  
-`
+  justify-content: space-between;
+`;

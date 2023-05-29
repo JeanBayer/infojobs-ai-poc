@@ -1,1 +1,1 @@
-export  * from './SelectCustom'
+export { default as SelectCustom } from "./SelectCustom";

@@ -1,1 +1,1 @@
-export * from './CardPostulante'
+export * from "./CardPostulante";
