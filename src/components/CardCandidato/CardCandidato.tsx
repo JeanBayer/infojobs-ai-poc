@@ -12,7 +12,7 @@ export const CardCandidato = ({
   rol
 }: CardCandidato) => {
   return (
-    <div className="card w-96 border-gray-500 text-white border text-primary-content">
+    <div className="card w-96 border-gray-500 bg-primary-content text-white  border">
       <div className="card-body">
         <div className='flex justify-between'>
 
