@@ -21,9 +21,6 @@ export const Form = () => {
             <TextArea labelText="Descripción del puesto" />
           </div>
           <div className="mb-4">
-            <Label labelText="Años de experiencia mínima requerida" />
-          </div>
-          <div className="mb-4">
             <Label labelText="Localidad" />
           </div>
           <div className="mb-4">
