@@ -1,13 +1,13 @@
-import { CardCandidato } from "@/components";
+import { CardPostulante } from "@/components";
 
 export default function PostuladosCompany() {
   return (
     <main className="p-3">
-      
+
       <section className="flex flex-wrap gap-4 justify-center ">
         {
           personas.map(({ id, name, rol, probabilidad }) => (
-            <CardCandidato key={id} name={name} probabilidad={probabilidad} rol={rol} />
+            <CardPostulante key={id} name={name} probabilidad={probabilidad} rol={rol} />
           ))
         }
       </section>
