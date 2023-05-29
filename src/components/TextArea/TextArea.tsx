@@ -9,7 +9,7 @@ export const TextArea = ({labelText}:LabelProps) => {
     <div className="form-control">
       <label className="input-group">
         <span>{labelText}</span>
-        <textarea className="textarea w-96" placeholder="Bio"></textarea>
+        <textarea className="textarea w-96  input-bordered" placeholder="Bio"></textarea>
       </label>
     </div>
   )

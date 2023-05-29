@@ -1,12 +1,13 @@
+"use client"
 import React from 'react';
 import { Label } from '../Label/Label';
-import { Select } from '../Select/Select';
 import { TextArea } from '../TextArea/TextArea';
+import SelectCustom from '../SelectCustom/SelectCustom';
 
 const idiomas = ["Inglés", "Francés"];
 const modalidad = ["Presencial", "Híbrida", "Remoto"];
 
-export const Form = () => {
+const Form = () => {
   return (
     < >
       <h3 className='text-white text-2xl text-center my-10'>Añadir oferta de trabajo</h3>
@@ -21,16 +22,13 @@ export const Form = () => {
             <TextArea labelText="Descripción del puesto" />
           </div>
           <div className="mb-4">
-            <Label labelText="Años de experiencia mínima requerida" />
-          </div>
-          <div className="mb-4">
             <Label labelText="Localidad" />
           </div>
           <div className="mb-4">
-            <Select labelText="Selecciona modalidad" list={modalidad} />
+            <SelectCustom labelText="Selecciona modalidad" list={modalidad} />
           </div>
           <div className="mb-4">
-            <Select labelText="Selecciona idiomas" list={idiomas} />
+            <SelectCustom labelText="Selecciona idiomas" list={idiomas} />
           </div>
           <button className='btn btn-primary'> Enviar </button>
         </div>
@@ -38,3 +36,5 @@ export const Form = () => {
     </>
   );
 };
+
+export default Form
