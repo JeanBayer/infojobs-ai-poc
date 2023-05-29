@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from 'react';
 
 type CardJob = {
@@ -12,7 +13,7 @@ export const CardJob = ({ name, description }: CardJob) => {
   };
 
   return (
-    <div className="card  bg-slate-700 mx-8 bg-base-100  shadow-xl">
+    <div className="card bg-neutral m-8 bg-base-100  shadow-xl">
       <div className="card-body">
         <h2 className="card-title text-white">{name}</h2>
         <div className='flex-auto '>
