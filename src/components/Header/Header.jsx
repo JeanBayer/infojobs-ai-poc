@@ -9,7 +9,7 @@ const menu = [
     link: ''
   }
 ]
-export const Header = () => {
+export default Header = () => {
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
