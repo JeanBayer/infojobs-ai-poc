@@ -5,7 +5,7 @@ import AuthContext from "@/app/AuthContext";
 import Header from "../components/Header";
 
 export const metadata = {
-  title: "Home - CvCheckr",
+  title: "InfoJobs AI",
   description: "Check your CVs and get a score!",
 };
 
