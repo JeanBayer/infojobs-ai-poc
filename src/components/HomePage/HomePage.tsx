@@ -7,7 +7,7 @@ export const HomePage = () => {
 
         <h2 className='font-bold text-4xl mb-5 text-white'>Herramienta de Reclutamiento automático</h2>
         <br />
-        <p className='mb-12 text-lg text-center'>¿Estás buscando los mejores candidatos para tus ofertas de trabajo?
+        <p className='mb-12 text-lg text-center mx-5'>¿Estás buscando los mejores candidatos para tus ofertas de trabajo?
           Nuestra aplicación está aquí para ayudarte. Utilizando avanzadas técnicas de inteligencia artificial y procesamiento de datos, te brindamos una solución eficiente y precisa para encontrar a los profesionales más calificados que se ajusten a tus requerimientos.</p>
         <br />
         <div className='flex flex-wrap gap-10 my-4 justify-center '>
