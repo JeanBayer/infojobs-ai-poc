@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 
-export const BannerJob = ({ name, description }) => {
+type BannerJob = {
+  name: string,
+  description: string
+}
+export const BannerJob = ({ name, description }:BannerJob) => {
   const [showMore, setShowMore] = useState(false);
   const [mode, setMode] = useState('Candidatos');
 

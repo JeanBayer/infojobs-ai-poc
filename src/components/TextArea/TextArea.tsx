@@ -1,6 +1,10 @@
 import React from 'react'
 
-export const TextArea = ({labelText}) => {
+
+type  LabelProps = {
+  labelText: string
+}
+export const TextArea = ({labelText}:LabelProps) => {
   return (
     <div className="form-control">
       <label className="input-group">

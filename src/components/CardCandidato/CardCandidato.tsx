@@ -1,11 +1,16 @@
 import React from 'react'
 
+type CardCandidato = {
+  name: string,
+  probabilidad: number,
+  rol: string
+}
 
 export const CardCandidato = ({
   name,
   probabilidad,
   rol
-}) => {
+}: CardCandidato) => {
   return (
     <div className="card w-96 border-gray-500 text-white border text-primary-content">
       <div className="card-body">

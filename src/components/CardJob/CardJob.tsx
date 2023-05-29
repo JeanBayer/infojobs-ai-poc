@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 
-export const CardJob = ({ name, description }) => {
+type CardJob = {
+  name: string,
+  description: string
+}
+export const CardJob = ({ name, description }: CardJob) => {
   const [showMore, setShowMore] = useState(false);
 
   const toggleShowMore = () => {
