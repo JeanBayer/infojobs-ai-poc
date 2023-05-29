@@ -1,11 +1,12 @@
 "use client"
+import Link from 'next/link';
 import React, { useState } from 'react';
 
 type BannerJob = {
   name: string,
   description: string
 }
-export const BannerJob = ({ name, description }:BannerJob) => {
+export const BannerJob = ({ name, description }: BannerJob) => {
   const [showMore, setShowMore] = useState(false);
   const [mode, setMode] = useState('Candidatos');
 
@@ -35,18 +36,20 @@ export const BannerJob = ({ name, description }:BannerJob) => {
         </div>
         <div className="card-actions justify-start">
           <div className="btn-group">
-            <button
+            <Link
+              href='/company/globant/oferta/1/candidatos'
               className={`btn ${mode === 'Candidatos' ? 'btn-active' : ''}`}
               onClick={handleModeChange}
             >
               Candidatos
-            </button>
-            <button
+            </Link>
+            <Link
+              href='/company/globant/oferta/1/postulados'
               className={`btn ${mode === 'Postulantes' ? 'btn-active' : ''}`}
               onClick={handleModeChange}
             >
               Postulantes
-            </button>
+            </Link>
           </div>
         </div>
       </div>
