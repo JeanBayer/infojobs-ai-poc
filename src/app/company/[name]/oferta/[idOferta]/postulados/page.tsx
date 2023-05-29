@@ -7,7 +7,7 @@ export default function PostuladosCompany() {
       <section className="flex flex-wrap gap-4 justify-center ">
         {
           personas.map(({ id, name, rol, probabilidad }) => (
-            <CardPostulante key={id} name={name} probabilidad={probabilidad} rol={rol} />
+            <CardPostulante  key={id} name={name} probabilidad={probabilidad} rol={rol} />
           ))
         }
       </section>

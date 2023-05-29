@@ -4,9 +4,11 @@ import React, { useState } from 'react';
 
 type BannerJob = {
   name: string,
-  description: string
+  description: string,
+  nombreEmpresa: string,
+  idOferta: string
 }
-export const BannerJob = ({ name, description }: BannerJob) => {
+export const BannerJob = ({ name, description, nombreEmpresa = "globant", idOferta = "1" }: BannerJob) => {
   const [showMore, setShowMore] = useState(false);
   const [mode, setMode] = useState('Candidatos');
 
@@ -44,7 +46,7 @@ export const BannerJob = ({ name, description }: BannerJob) => {
               Candidatos
             </Link>
             <Link
-              href='/company/globant/oferta/1/postulados'
+              href={`/company/${nombreEmpresa}/oferta/${idOferta}/postulados`}
               className={`btn ${mode === 'Postulantes' ? 'btn-active' : ''}`}
               onClick={handleModeChange}
             >
