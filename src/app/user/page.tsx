@@ -1,5 +1,5 @@
 "use client";
-import { useUser } from "@/app/hooks/useUser";
+import { useUser } from "@/hooks/useUser";
 
 export default function ResumePage() {
   const { user, isLoading, isError } = useUser();
