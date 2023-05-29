@@ -1,10 +1,11 @@
-import StyledComponentsRegistry from "@/lib/registry";
-import { Analytics } from "@vercel/analytics/react";
 import { Montserrat } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import StyledComponentsRegistry from "@/lib/registry";
 import "./globals.css";
+
 export const metadata = {
-  title: "CvCheckr",
-  description: "App for analize your CV and give you feedback",
+  title: "InfoJobs AI",
+  description: "InfoJobs AI",
 };
 
 const montserrat = Montserrat({
