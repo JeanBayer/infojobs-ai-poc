@@ -1,7 +1,8 @@
 "use client"
+
+import React from 'react'
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
-import React from 'react'
 
 const menu = [
   {
@@ -9,7 +10,7 @@ const menu = [
     link: ''
   }
 ]
-export default Header = () => {
+const Header = () => {
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -46,3 +47,4 @@ export default Header = () => {
     </div>
   )
 }
+export default Header;
