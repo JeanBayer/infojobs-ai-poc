@@ -7,7 +7,7 @@ type CardCandidato = {
   rol: string
 }
 
-export const CardCandidato = ({
+export const CardPostulante = ({
   name,
   probabilidad,
   rol
@@ -23,7 +23,7 @@ export const CardCandidato = ({
         <p className="text-xs">{rol}</p>
         <div className='divider'></div>
 
-        <Link href='' className="btn btn-primary">Enviar</Link>
+        <Link href='company/globant/oferta/1/postulados/2' className="btn btn-primary">Ver perfil</Link>
       </div>
     </div>
   )

@@ -1,4 +1,5 @@
 "use client"
+import Link from 'next/link';
 import React, { useState } from 'react';
 
 type CardJob = {
@@ -26,7 +27,7 @@ export const CardJob = ({ name, description }: CardJob) => {
           )}
         </div>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Ver candidatos</button>
+          <Link href='/company/globant/oferta/1/candidatos' className="btn btn-primary">Ver candidatos</Link>
         </div>
       </div>
     </div>
