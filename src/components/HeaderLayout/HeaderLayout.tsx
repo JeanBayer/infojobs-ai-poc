@@ -5,7 +5,11 @@ import React from 'react'
 const menu = [
   {
     name: 'Crear oferta',
-    link: ''
+    link: '/company/globant/oferta/create'
+  },
+  {
+    name: 'Ver ofertas',
+    link: '/company/globant/ofertas'
   }
 ]
 const HeaderLayout = ({ nameCompany = 'infojobs' }) => {
