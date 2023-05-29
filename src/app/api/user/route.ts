@@ -26,7 +26,7 @@ export async function GET(req: NextRequest) {
 
   const CV_CODE = curriculums[0].code;
   if (!CV_CODE) return new NextResponse("Unauthorized", { status: 401 });
-  
+
   const cvtext = await getCVText(CV_CODE, accessToken);
   const skill = await getSkill(CV_CODE, accessToken);
   const experience = await getExperience(CV_CODE, accessToken);

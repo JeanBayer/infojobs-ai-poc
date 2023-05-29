@@ -18,9 +18,9 @@ export const fetcherWithAuth = async (url: string) => {
     "Content-Type": "application/json",
   };
 
-  const response = await fetch(url, {    
+  const response = await fetch(url, {
     headers: headers,
-  });  
+  });
 
   if (!response.ok) {
     throw new Error(response.statusText);

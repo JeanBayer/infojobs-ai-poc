@@ -1,5 +1,4 @@
-import Form from "@/components/Form/Form";
-import HeaderLayout from "@/components/HeaderLayout/HeaderLayout";
+import { Form, HeaderLayout } from "@/components";
 
 export default function CrearOfertaCompany() {
   return (

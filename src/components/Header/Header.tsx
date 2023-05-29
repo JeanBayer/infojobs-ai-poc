@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import React from 'react'
-import { signIn } from 'next-auth/react';
-import Link from 'next/link';
+import React from "react";
+import { signIn } from "next-auth/react";
+import Link from "next/link";
 
 const menu = [
   {
-    name: 'Crear oferta',
-    link: ''
-  }
-]
+    name: "Crear oferta",
+    link: "",
+  },
+];
 const Header = () => {
   return (
     <div className="navbar bg-base-100">
@@ -30,21 +30,21 @@ const Header = () => {
       </div>
       <div className="navbar-end">
         {/* <p className='normal-case text-m mr-3'>{nameCompany}</p> */}
-        <div className='flex gap-x-4'>
+        <div className="flex gap-x-4">
           <button
-
             onClick={() => {
               signIn("infojobs", { callbackUrl: "/user" });
             }}
-            className='btn btn-secondary'>
+            className="btn btn-secondary"
+          >
             Persona
           </button>
-          <Link href='/company/login' className='btn btn-secondary'>
+          <Link href="/company/login" className="btn btn-secondary">
             Empresa
           </Link>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 export default Header;
