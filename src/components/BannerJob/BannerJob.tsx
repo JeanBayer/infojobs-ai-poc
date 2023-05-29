@@ -20,7 +20,7 @@ export const BannerJob = ({ name, description }: BannerJob) => {
 
   return (
     <div className="rounded-br-3xl border-gray-500 border rounded-bl-3xl shadow-xl">
-      <div className="card-body">
+      <div className="card-body ">
         <h2 className="card-title text-white">{name}</h2>
         <div className="flex-auto">
           <p>{showMore ? description : description.slice(0, 300) + '...'}</p>
@@ -52,6 +52,7 @@ export const BannerJob = ({ name, description }: BannerJob) => {
             </Link>
           </div>
         </div>
+
       </div>
     </div>
   );
