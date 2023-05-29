@@ -10,9 +10,9 @@ export default function OfertaLayout({
   return (
     <main className="p-3">
       <HeaderLayout />
-      <BannerJob name={oferta.puesto} description={oferta.descripcion} />
+      <BannerJob nombreEmpresa="globant" idOferta="1" name={oferta.puesto} description={oferta.descripcion} />
       <div className="flex justify-end">
-      <BtnReload />
+        <BtnReload />
 
       </div>
       {children}
