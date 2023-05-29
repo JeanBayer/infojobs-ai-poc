@@ -1,18 +1,14 @@
 import { Stat } from "@/components";
 import Link from "next/link";
 
-type PostuladoCompanyProps = {
-  name: string
-}
-export default function PostuladoCompany({
-  name = 'Day Arango'
-}: PostuladoCompanyProps) {
+
+export default function PostuladoCompany() {
   return (
     <main className="p-3">
       <section className="mx-8">
         <div className="flex justify-between">
 
-          <h4 className="text-3xl font-bold">{name}</h4>
+          <h4 className="text-3xl font-bold">{'Day Arango'}</h4>
           <Link href='www.linkedlin.com' className="btn btn-secondary">Ver perfil</Link>
         </div>
         <p className="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore minima excepturi, nemo consequatur error architecto similique sed soluta eligendi omnis atque earum nihil sapiente ab natus maxime optio tempora cumque!
