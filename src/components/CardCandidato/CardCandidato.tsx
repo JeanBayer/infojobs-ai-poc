@@ -1,13 +1,34 @@
-import Link from "next/link";
+"use client";
+
 import React from "react";
+import { addCandidato } from "@/firebase/firestore/addData";
 
 type CardCandidato = {
   name: string;
   probabilidad: number;
   rol: string;
+  company: any;
+  idOferta: string;
+  id: number;
 };
 
-export const CardCandidato = ({ name, probabilidad, rol }: CardCandidato) => {
+const CardCandidato = ({
+  name,
+  probabilidad,
+  rol,
+  company,
+  idOferta,
+  id,
+}: CardCandidato) => {
+  const handleClick = async () => {
+    const { result } = await addCandidato(
+      company.uid,
+      id,
+      idOferta,
+      probabilidad
+    );
+    console.log({ result });
+  };
   return (
     <div className="text-white border border-gray-500 card w-96 bg-primary-content">
       <div className="card-body">
@@ -18,10 +39,12 @@ export const CardCandidato = ({ name, probabilidad, rol }: CardCandidato) => {
         <p className="text-xs">{rol}</p>
         <div className="divider"></div>
 
-        <Link href="" className="btn btn-primary">
-          Enviar
-        </Link>
+        <button className="btn btn-primary" onClick={handleClick}>
+          Enviar prueba
+        </button>
       </div>
     </div>
   );
 };
+
+export default CardCandidato;

@@ -1,46 +1,46 @@
+"use client";
+import { useAuthContext } from "@/context/AuthContext";
 import { CardCandidato } from "@/components";
+import { useEffect, useState } from "react";
+import { getCandidatos } from "@/firebase/firestore/getData";
 
-export default function CandidatosCompany() {
-  console.log("candidatos");
+export default function CandidatosCompany({
+  params,
+}: {
+  params: {
+    idOferta: string;
+  };
+}) {
+  const [candidatos, setCandidatos] = useState<any>([]);
+
+  useEffect(() => {
+    const traerCandidatos = async () => {
+      const { result } = await getCandidatos();
+      setCandidatos(result);
+    };
+    traerCandidatos();
+  }, []);
+
+  const { company } = useAuthContext();
+  const { idOferta } = params;
+
   return (
     <main className="p-3">
       <section className="flex flex-wrap justify-center gap-4 ">
-        {personas.map(({ id, name, rol, probabilidad }) => (
-          <CardCandidato
-            key={id}
-            name={name}
-            probabilidad={probabilidad}
-            rol={rol}
-          />
-        ))}
+        {candidatos?.map(
+          ({ info, probabilidad }: { info: any; probabilidad: any }) => (
+            <CardCandidato
+              key={info.id}
+              name={info.name}
+              probabilidad={probabilidad}
+              rol={"software engineer"}
+              company={company}
+              idOferta={idOferta}
+              id={info.id}
+            />
+          )
+        )}
       </section>
     </main>
   );
 }
-
-const personas = [
-  {
-    id: "1",
-    name: "John Doe",
-    probabilidad: 80,
-    rol: "Frontend Developer with React"
-  },
-  {
-    id: "2",
-    name: "Jane Smith",
-    probabilidad: 95,
-    rol: "Frontend Developer"
-  },
-  {
-    id: "3",
-    name: "Michael Johnson",
-    probabilidad: 70,
-    rol: "Full Stack Developer"
-  },
-  {
-    id: "4",
-    name: "Emily Davis",
-    probabilidad: 60,
-    rol: "Software Engineer"
-  }
-];
