@@ -1,7 +1,6 @@
 "use client"
 import signUp from '@/firebase/auth/signup';
 import addData from '@/firebase/firestore/addData';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 
@@ -10,6 +9,8 @@ const FormSignup = () => {
   const [password, setPassword] = useState("");
   const [nombre, setNombre] = useState("");
   const router = useRouter();
+
+
 
   const handleForm = async (event: any) => {
     event.preventDefault();
@@ -22,15 +23,15 @@ const FormSignup = () => {
     const { result: addDataResult, error: addDataError } = await addData("empresas", result?.user.uid, data);
     if (error || addDataError) {
       return console.log(error);
-    }
+    } 
 
     console.log(result);
 
-    return router.push("/company/ofertas");
+    return router.push(`/company/ofertas`);
   };
   return (
     <div className='flex justify-center gap-5'>
-      <form  className="form">
+      <form className="form">
         <label htmlFor="email">
           <p>Email</p>
           <input
