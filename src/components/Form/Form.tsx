@@ -15,7 +15,7 @@ const Form = () => {
 
   const { user, company } = useAuthContext();
 
-  const handleForm = async (e) => {
+  const handleForm = async (e: React.FormEvent<HTMLFormElement>) => {
     // TODO: agregar la información de una oferta creada por la empresa
     e.preventDefault()
     const object = {
