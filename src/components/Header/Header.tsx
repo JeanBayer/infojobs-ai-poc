@@ -36,6 +36,7 @@ const Header = () => {
               signIn("infojobs", { callbackUrl: "/user" });
             }}
             className="btn btn-secondary"
+
           >
             Persona
           </button>

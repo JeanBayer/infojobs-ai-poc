@@ -71,7 +71,7 @@ const FormSignup = () => {
             className="input input-bordered w-full max-w-xs"
           />
         </label>
-        <button onClick={handleForm} type="submit" className="bg-indigo-500 mt-5  text-white py-2 px-4 rounded">
+        <button onClick={handleForm} type="submit" className="btn mt-4 btn-primary">
           Sign Up
         </button>
       </form>
