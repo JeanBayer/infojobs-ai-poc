@@ -11,3 +11,5 @@ export * from "./Label";
 export * from "./SelectCustom";
 export * from "./Stat";
 export * from "./TextArea";
+export * from './FormSignin'
+export * from './FormSignup'

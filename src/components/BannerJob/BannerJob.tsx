@@ -44,7 +44,7 @@ const BannerJob = ({
         <div className="justify-start card-actions">
           <div className="btn-group">
             <Link
-              href="/company/globant/oferta/1/candidatos"
+              href="/company/oferta/1/candidatos"
               className={`btn ${mode === "Candidatos" ? "btn-active" : ""}`}
               onClick={handleModeChange}
             >
