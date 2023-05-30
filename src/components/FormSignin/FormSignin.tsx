@@ -7,6 +7,7 @@ import React, { useState } from 'react'
 
 const FormSignin = () => {
 
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
@@ -22,8 +23,8 @@ const FormSignin = () => {
 
     // else successful
     console.log(result);
+    return router.push(`/company/ofertas`);
   }
-  // return router.push("/admin");
   return (
 
     <div className='flex justify-center gap-5'>
@@ -57,7 +58,7 @@ const FormSignin = () => {
               />
             </label>
           </div>
-          <button type="submit" className="bg-indigo-500 mb-5  text-white py-2 px-4 rounded">
+          <button type="submit" className="btn mb-3 btn-primary">
             Sign In
           </button>
         </form>

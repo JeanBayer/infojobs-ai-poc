@@ -1,4 +1,6 @@
 import React from "react";
+import img from '../../images/imagen.png'
+import Image from "next/image";
 
 export const HomePage = () => {
   return (
@@ -16,9 +18,16 @@ export const HomePage = () => {
           profesionales más calificados que se ajusten a tus requerimientos.
         </p>
         <br />
-        <div className="flex flex-wrap gap-10 my-4 justify-center ">
+        <div className="mockup-window border mb-10 bg-base-300">
+          <div className="flex justify-center px-4 py-16 bg-base-200">
+            <Image height='300' width='800' src={img} alt="imagen de la pagina" />
+          </div>
+        </div>
+ 
+        <div className="flex flex-wrap gap-10  my-4 justify-center ">
           {/* card */}
-          <div className="card max-w-sm border-gray-500 border shadow-xl">
+
+          <div className="card w-96 border-gray-500 border shadow-xl">
             <figure>
               <img
                 width={200}
