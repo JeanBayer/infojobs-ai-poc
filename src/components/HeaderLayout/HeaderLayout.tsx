@@ -1,15 +1,17 @@
 "use client";
 
+import logout from "@/firebase/auth/logout";
+import Link from "next/link";
 import React from "react";
 
 const menu = [
   {
     name: "Crear oferta",
-    link: "/company/globant/oferta/create",
+    link: "/company/oferta/create",
   },
   {
     name: "Ver ofertas",
-    link: "/company/globant/ofertas",
+    link: "/company/ofertas",
   },
 ];
 const HeaderLayout = ({ nameCompany = "infojobs" }) => {
@@ -42,6 +44,9 @@ const HeaderLayout = ({ nameCompany = "infojobs" }) => {
                 <a href={link}>{name}</a>
               </li>
             ))}
+            <li key='logout'>
+              <Link onClick={logout} href='/' >Log out</Link>
+            </li>
           </ul>
         </div>
       </div>

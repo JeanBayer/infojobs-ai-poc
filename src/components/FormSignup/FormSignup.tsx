@@ -17,8 +17,10 @@ const FormSignup = () => {
 
     const { result, error } = await signUp(email, password);
     const data = {
+      uid: result?.user.uid,
       nombre,
-      correo: result?.user.email
+      correo: result?.user.email,
+      ofertas:[]
     }
     const { result: addDataResult, error: addDataError } = await addData("empresas", result?.user.uid, data);
     if (error || addDataError) {

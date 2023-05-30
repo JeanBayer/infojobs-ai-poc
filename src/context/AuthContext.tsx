@@ -52,7 +52,7 @@ export const AuthContextProvider = ({
       }
 
       const normalizeOfertas = await Promise.all(
-        result?.ofertas.map(async (oferta: any) => {
+        result?.ofertas?.map(async (oferta: any) => {
           const postulados = await Promise.all(
             oferta.postulados.map(async (postulado: any) => {
               const postulanteDoc = postulado.postulado;
