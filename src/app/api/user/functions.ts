@@ -34,6 +34,7 @@ export async function getCandidate(accessToken: string): Promise<Info> {
     accessToken
   );
   const candidate = {
+    id: candidateApi?.id,
     email: candidateApi?.email,
     photo: candidateApi?.photo,
     name: candidateApi?.name,

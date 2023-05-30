@@ -4,11 +4,12 @@ export interface User {
   info: Info;
   cvtext: CVText;
   skill: SkillUser;
-  experience: ExperienceUser[];
+  experience: Experience[];
 }
 
 export type Info = Pick<
   Candidate,
+  | "id"
   | "email"
   | "photo"
   | "name"

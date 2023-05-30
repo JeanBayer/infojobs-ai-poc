@@ -9,7 +9,7 @@ type CardCandidato = {
 
 export const CardCandidato = ({ name, probabilidad, rol }: CardCandidato) => {
   return (
-    <div className="card w-96 border-gray-500 bg-primary-content text-white  border">
+    <div className="text-white border border-gray-500 card w-96 bg-primary-content">
       <div className="card-body">
         <div className="flex justify-between">
           <h2 className="card-title">{name}</h2>

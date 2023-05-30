@@ -26,9 +26,9 @@ const BannerJob = ({
   };
 
   return (
-    <div className="rounded-br-3xl border-gray-500 border rounded-bl-3xl shadow-xl">
+    <div className="border border-gray-500 shadow-xl rounded-br-3xl rounded-bl-3xl">
       <div className="card-body ">
-        <h2 className="card-title text-white">{name}</h2>
+        <h2 className="text-white card-title">{name}</h2>
         <div className="flex-auto">
           <p>{showMore ? description : description.slice(0, 300) + "..."}</p>
           {description.length > 100 && (
@@ -41,7 +41,7 @@ const BannerJob = ({
             </button>
           )}
         </div>
-        <div className="card-actions justify-start">
+        <div className="justify-start card-actions">
           <div className="btn-group">
             <Link
               href="/company/globant/oferta/1/candidatos"

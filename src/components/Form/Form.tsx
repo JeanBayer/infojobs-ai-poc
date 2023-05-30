@@ -8,7 +8,7 @@ const modalidad = ["Presencial", "Híbrida", "Remoto"];
 const Form = () => {
   return (
     <>
-      <h3 className="text-white text-2xl text-center my-10">
+      <h3 className="my-10 text-2xl text-center text-white">
         Añadir oferta de trabajo
       </h3>
       <div className="flex justify-center">
