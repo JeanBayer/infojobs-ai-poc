@@ -7,6 +7,7 @@ import React, { useState } from 'react'
 
 const FormSignin = () => {
 
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
@@ -22,8 +23,8 @@ const FormSignin = () => {
 
     // else successful
     console.log(result);
+    return router.push(`/company/ofertas`);
   }
-  // return router.push("/admin");
   return (
 
     <div className='flex justify-center gap-5'>
