@@ -1,9 +1,10 @@
 import { CardCandidato } from "@/components";
 
 export default function CandidatosCompany() {
+  console.log("candidatos");
   return (
     <main className="p-3">
-      <section className="flex flex-wrap gap-4 justify-center ">
+      <section className="flex flex-wrap justify-center gap-4 ">
         {personas.map(({ id, name, rol, probabilidad }) => (
           <CardCandidato
             key={id}

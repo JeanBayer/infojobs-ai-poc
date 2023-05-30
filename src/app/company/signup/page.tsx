@@ -5,6 +5,7 @@ import signUp from "@/firebase/auth/signup";
 import { useRouter } from "next/navigation";
 
 export default function LoginCompany() {
+  // TODO: agregar los campos faltantes para el registro de una empresa
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
@@ -17,6 +18,8 @@ export default function LoginCompany() {
     if (error) {
       return console.log(error);
     }
+
+    // TODO: agregar la información de una empresa a firebase al momento de registrarse
 
     console.log(result);
     // return router.push("/admin");

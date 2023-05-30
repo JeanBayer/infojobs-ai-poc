@@ -5,14 +5,12 @@ import React, { useState } from "react";
 type BannerJob = {
   name: string;
   description: string;
-  nombreEmpresa: string;
   idOferta: string;
 };
 const BannerJob = ({
-  name,
-  description,
-  nombreEmpresa = "globant",
-  idOferta = "1",
+  name = "",
+  description = "",
+  idOferta = "",
 }: BannerJob) => {
   const [showMore, setShowMore] = useState(false);
   const [mode, setMode] = useState("Candidatos");
@@ -30,7 +28,7 @@ const BannerJob = ({
       <div className="card-body ">
         <h2 className="text-white card-title">{name}</h2>
         <div className="flex-auto">
-          <p>{showMore ? description : description.slice(0, 300) + "..."}</p>
+          <p>{showMore ? description : description?.slice(0, 300) + "..."}</p>
           {description.length > 100 && (
             <button
               role="button"
@@ -44,14 +42,14 @@ const BannerJob = ({
         <div className="justify-start card-actions">
           <div className="btn-group">
             <Link
-              href="/company/globant/oferta/1/candidatos"
+              href={`/company/oferta/${idOferta}/candidatos`}
               className={`btn ${mode === "Candidatos" ? "btn-active" : ""}`}
               onClick={handleModeChange}
             >
               Candidatos
             </Link>
             <Link
-              href={`/company/${nombreEmpresa}/oferta/${idOferta}/postulados`}
+              href={`/company/oferta/${idOferta}/postulados`}
               className={`btn ${mode === "Postulantes" ? "btn-active" : ""}`}
               onClick={handleModeChange}
             >

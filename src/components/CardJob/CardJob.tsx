@@ -5,8 +5,9 @@ import React, { useState } from "react";
 type CardJob = {
   name: string;
   description: string;
+  id: string;
 };
-const CardJob = ({ name, description }: CardJob) => {
+const CardJob = ({ name, description, id }: CardJob) => {
   const [showMore, setShowMore] = useState(false);
 
   const toggleShowMore = () => {
@@ -31,7 +32,7 @@ const CardJob = ({ name, description }: CardJob) => {
         </div>
         <div className="justify-end card-actions">
           <Link
-            href="/company/globant/oferta/1/candidatos"
+            href={`/company/oferta/${id}/candidatos`}
             className="btn btn-primary"
           >
             Ver candidatos
