@@ -1,19 +1,20 @@
 "use client";
 import { useUser } from "@/hooks/useUser";
+import Link from "next/link";
 
 export default function ResumePage() {
   const { user, isLoading, isError } = useUser();
 
   return (
-    <div className="w-full m-auto mt-4 container-wrapper">
-      <div className="flex flex-col w-full h-full gap-4 md:flex-row">
-        <section className="flex-row items-start relative shadow-sm bg-white rounded-lg p-6 m-4 w-[320px]">
-          <div className="flex flex-col">
-            {isLoading && <p>Cargando...</p>}
-            {isError && <p>Hubo un error al cargar los datos</p>}
-            {user && <pre>{JSON.stringify(user, null, 2)}</pre>}
+    <div className="flex mt-10 justify-center items-center">
+      <div className="card w-96 bg-secondary text-secondary-content mx-auto">
+        <div className="card-body">
+          <h2 className="card-title">Gracias {user?.info?.name} por confiar en nosotros ✨</h2>
+          <p> Infojobs AI se encargará de mostrar tu perfil en las ofertas que encages y recibirás un correo si una empresa a decidido conocerte.</p>
+          <div className="card-actions justify-end">
+            <Link href='/' className="btn">Volver</Link>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   );
