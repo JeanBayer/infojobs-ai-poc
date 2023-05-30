@@ -40,7 +40,7 @@ const CardCandidato = ({
         <div className="divider"></div>
 
         <button className="btn btn-primary" onClick={handleClick}>
-          Enviar prueba
+          Añadir Candidato
         </button>
       </div>
     </div>

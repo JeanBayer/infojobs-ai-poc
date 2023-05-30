@@ -16,6 +16,7 @@ export default function CandidatosCompany({
   useEffect(() => {
     const traerCandidatos = async () => {
       const { result } = await getCandidatos();
+      console.log(result);
       setCandidatos(result);
     };
     traerCandidatos();
@@ -28,12 +29,20 @@ export default function CandidatosCompany({
     <main className="p-3">
       <section className="flex flex-wrap justify-center gap-4 ">
         {candidatos?.map(
-          ({ info, probabilidad }: { info: any; probabilidad: any }) => (
+          ({
+            info,
+            probabilidad,
+            experience,
+          }: {
+            info: any;
+            probabilidad: any;
+            experience: any;
+          }) => (
             <CardCandidato
               key={info.id}
               name={info.name}
               probabilidad={probabilidad}
-              rol={"software engineer"}
+              rol={experience[0].job}
               company={company}
               idOferta={idOferta}
               id={info.id}
