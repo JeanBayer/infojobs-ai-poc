@@ -39,7 +39,7 @@ const Header = () => {
           >
             Persona
           </button>
-          <Link href="/company/login" className="btn btn-secondary">
+          <Link href="/company/signin" className="btn btn-secondary">
             Empresa
           </Link>
         </div>
