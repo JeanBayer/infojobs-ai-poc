@@ -1,10 +1,19 @@
+"use client";
+import Link from "next/link";
 import React, { useState } from "react";
 
 type BannerJob = {
   name: string;
   description: string;
+  nombreEmpresa: string;
+  idOferta: string;
 };
-export const BannerJob = ({ name, description }: BannerJob) => {
+const BannerJob = ({
+  name,
+  description,
+  nombreEmpresa = "globant",
+  idOferta = "1",
+}: BannerJob) => {
   const [showMore, setShowMore] = useState(false);
   const [mode, setMode] = useState("Candidatos");
 
@@ -17,9 +26,9 @@ export const BannerJob = ({ name, description }: BannerJob) => {
   };
 
   return (
-    <div className="rounded-br-3xl border-gray-500 border rounded-bl-3xl shadow-xl">
-      <div className="card-body">
-        <h2 className="card-title text-white">{name}</h2>
+    <div className="border border-gray-500 shadow-xl rounded-br-3xl rounded-bl-3xl">
+      <div className="card-body ">
+        <h2 className="text-white card-title">{name}</h2>
         <div className="flex-auto">
           <p>{showMore ? description : description.slice(0, 300) + "..."}</p>
           {description.length > 100 && (
@@ -32,23 +41,27 @@ export const BannerJob = ({ name, description }: BannerJob) => {
             </button>
           )}
         </div>
-        <div className="card-actions justify-start">
+        <div className="justify-start card-actions">
           <div className="btn-group">
-            <button
+            <Link
+              href="/company/globant/oferta/1/candidatos"
               className={`btn ${mode === "Candidatos" ? "btn-active" : ""}`}
               onClick={handleModeChange}
             >
               Candidatos
-            </button>
-            <button
+            </Link>
+            <Link
+              href={`/company/${nombreEmpresa}/oferta/${idOferta}/postulados`}
               className={`btn ${mode === "Postulantes" ? "btn-active" : ""}`}
               onClick={handleModeChange}
             >
               Postulantes
-            </button>
+            </Link>
           </div>
         </div>
       </div>
     </div>
   );
 };
+
+export default BannerJob;

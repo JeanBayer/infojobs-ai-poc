@@ -1,8 +1,10 @@
+"use client";
 import React, { useState } from "react";
+
 type LabelProps = {
   labelText: string;
 };
-export const Label = ({ labelText }: LabelProps) => {
+const Label = ({ labelText }: LabelProps) => {
   const [valor, setValor] = useState("");
 
   return (
@@ -20,3 +22,5 @@ export const Label = ({ labelText }: LabelProps) => {
     </div>
   );
 };
+
+export default Label;

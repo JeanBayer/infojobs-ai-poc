@@ -1,10 +1,12 @@
+"use client";
+import Link from "next/link";
 import React, { useState } from "react";
 
 type CardJob = {
   name: string;
   description: string;
 };
-export const CardJob = ({ name, description }: CardJob) => {
+const CardJob = ({ name, description }: CardJob) => {
   const [showMore, setShowMore] = useState(false);
 
   const toggleShowMore = () => {
@@ -12,9 +14,9 @@ export const CardJob = ({ name, description }: CardJob) => {
   };
 
   return (
-    <div className="card  bg-slate-700 mx-8 bg-base-100  shadow-xl">
+    <div className="m-8 shadow-xl card bg-neutral bg-base-100">
       <div className="card-body">
-        <h2 className="card-title text-white">{name}</h2>
+        <h2 className="text-white card-title">{name}</h2>
         <div className="flex-auto ">
           <p>{showMore ? description : description.slice(0, 300) + "..."}</p>
           {description.length > 100 && (
@@ -27,10 +29,17 @@ export const CardJob = ({ name, description }: CardJob) => {
             </button>
           )}
         </div>
-        <div className="card-actions justify-end">
-          <button className="btn btn-primary">Ver candidatos</button>
+        <div className="justify-end card-actions">
+          <Link
+            href="/company/globant/oferta/1/candidatos"
+            className="btn btn-primary"
+          >
+            Ver candidatos
+          </Link>
         </div>
       </div>
     </div>
   );
 };
+
+export default CardJob;

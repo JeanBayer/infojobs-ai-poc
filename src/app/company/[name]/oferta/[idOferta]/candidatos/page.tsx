@@ -1,12 +1,56 @@
+import { CardCandidato } from "@/components";
+
 export default function CandidatosCompany() {
   return (
     <main className="p-3">
-      <header className="flex justify-around w-full mt-4 md:mt-0 md:h-full ">
-        <h2 className="text-2xl font-bold">Candidatos COMPANY</h2>
-      </header>
-      <section>
-        <p>Candidatos Company</p>
+      <section className="flex flex-wrap gap-4 justify-center ">
+        {personas.map(({ id, name, rol, probabilidad }) => (
+          <CardCandidato
+            key={id}
+            name={name}
+            probabilidad={probabilidad}
+            rol={rol}
+          />
+        ))}
       </section>
     </main>
   );
 }
+
+const personas = [
+  {
+    id: "1",
+    name: "Persona 1",
+    probabilidad: 0.75,
+    rol: "Rol 1",
+  },
+  {
+    id: "2",
+    name: "Persona 2",
+    probabilidad: 0.5,
+    rol: "Rol 2",
+  },
+  {
+    id: "3",
+    name: "Persona 3",
+    probabilidad: 0.9,
+    rol: "Rol 3",
+  },
+  {
+    name: "Persona 4",
+    probabilidad: 0.25,
+    rol: "Rol 4",
+  },
+  {
+    id: "4",
+    name: "Persona 5",
+    probabilidad: 0.6,
+    rol: "Rol 5",
+  },
+  {
+    id: "5",
+    name: "Persona 6",
+    probabilidad: 0.8,
+    rol: "Rol 6",
+  },
+];

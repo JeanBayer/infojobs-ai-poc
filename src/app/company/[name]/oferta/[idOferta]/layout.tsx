@@ -1,3 +1,5 @@
+import { BannerJob, BtnReload, HeaderLayout } from "@/components";
+
 export default function OfertaLayout({
   children,
 }: {
@@ -5,13 +7,29 @@ export default function OfertaLayout({
 }) {
   return (
     <main className="p-3">
-      <header className="flex justify-around w-full mt-4 md:mt-0 md:h-full ">
-        <h2 className="text-2xl font-bold">Oferta Layout COMPANY</h2>
-      </header>
-      <section>
-        <p>Oferta Layout Company</p>
-      </section>
+      <HeaderLayout />
+      <BannerJob
+        nombreEmpresa="globant"
+        idOferta="1"
+        name={oferta.puesto}
+        description={oferta.descripcion}
+      />
+      <div className="flex justify-end">
+        <BtnReload />
+      </div>
       {children}
     </main>
   );
 }
+
+const oferta = {
+  id: "1",
+  idCompany: "ABC Company",
+  puesto: "Desarrollador Frontend",
+  descripcion:
+    "Buscamos un desarrollador frontend con experiencia en HTML, CSS y JavaScript para unirse a nuestro equipo.",
+  idioma: "Inglés",
+  localidad: "Ciudad XYZ",
+  modalidad: "Tiempo completo",
+  postulados: [],
+};
