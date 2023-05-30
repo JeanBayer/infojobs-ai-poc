@@ -4,6 +4,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { onAuthStateChanged, getAuth, User } from "firebase/auth";
 import firebase_app from "@/firebase/config";
 import getDocument from "@/firebase/firestore/getData";
+import { getDoc } from "firebase/firestore";
 
 const auth = getAuth(firebase_app);
 
@@ -44,14 +45,30 @@ export const AuthContextProvider = ({
   useEffect(() => {
     if (!user) return;
     const handleGetData = async () => {
-      // TODO: hacer asociación de referencia entre postulantes y nuestro documento
       const { result, error } = await getDocument("empresas", user?.uid);
 
       if (error) {
         return console.log(error);
       }
-      setCompany(result);
-      console.log(result);
+
+      const normalizeOfertas = await Promise.all(
+        result?.ofertas.map(async (oferta: any) => {
+          const postulados = await Promise.all(
+            oferta.postulados.map(async (postulado: any) => {
+              const postulanteDoc = postulado.postulado;
+              const postulanteData = await getDoc(postulanteDoc);
+              const postuladoRef = postulanteData.data();
+              return { ...postulado, postulado: postuladoRef };
+            })
+          );
+          return { ...oferta, postulados };
+        })
+      );
+
+      const ofertas = await Promise.all(normalizeOfertas);
+      const newCompany = { ...result, ofertas };
+
+      setCompany(newCompany);
     };
     handleGetData();
   }, [user]);

@@ -33,7 +33,7 @@ export async function getCandidate(accessToken: string): Promise<Info> {
     CANDIDATE_ENDPOINT,
     accessToken
   );
-  const candidate = {
+  const candidate: Info = {
     id: candidateApi?.id,
     email: candidateApi?.email,
     photo: candidateApi?.photo,
@@ -43,6 +43,7 @@ export async function getCandidate(accessToken: string): Promise<Info> {
     fullName: candidateApi?.fullName,
     city: candidateApi?.city,
     province: candidateApi?.province,
+    publicProfileLink: candidateApi?.publicProfileLink,
   };
 
   return candidate;

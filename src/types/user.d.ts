@@ -18,6 +18,7 @@ export type Info = Pick<
   | "fullName"
   | "city"
   | "province"
+  | "publicProfileLink"
 >;
 
 export type CVText = string;
