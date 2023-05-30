@@ -1,17 +1,22 @@
-import { ICheckDescription } from '@/models/CheckDescription.model';
-import { NextRequest, NextResponse } from 'next/server';
-import { ChatCompletionRequestMessage, ChatCompletionRequestMessageRoleEnum, Configuration, OpenAIApi } from 'openai';
+import { ICheckDescription } from "@/models/CheckDescription.model";
+import { NextRequest, NextResponse } from "next/server";
+import {
+  ChatCompletionRequestMessage,
+  ChatCompletionRequestMessageRoleEnum,
+  Configuration,
+  OpenAIApi,
+} from "openai";
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const configuration = new Configuration({
-    apiKey: OPENAI_API_KEY,
+  apiKey: OPENAI_API_KEY,
 });
 
 const openai = new OpenAIApi(configuration);
 
 const INITIAL_PROMPT: Array<ChatCompletionRequestMessage> = [
-    {
-        content: `
+  {
+    content: `
         You are a world class HR Recruiter
         You will be provided with JSON with the following keys. The JSON will start delimitated by triple quotes
         {
@@ -56,44 +61,43 @@ const INITIAL_PROMPT: Array<ChatCompletionRequestMessage> = [
            "feedback": [feedback]
         }
         `,
-        role: ChatCompletionRequestMessageRoleEnum.System,
-    }
+    role: ChatCompletionRequestMessageRoleEnum.System,
+  },
 ];
 
-const getCompletion = async (prompt: string, model: string = "gpt-3.5-turbo") => {
-    const messages: Array<ChatCompletionRequestMessage> = [
-        {
-            role: ChatCompletionRequestMessageRoleEnum.User,
-            content: prompt,
-        }
-    ]
+const getCompletion = async (
+  prompt: string,
+  model: string = "gpt-3.5-turbo"
+) => {
+  const messages: Array<ChatCompletionRequestMessage> = [
+    {
+      role: ChatCompletionRequestMessageRoleEnum.User,
+      content: prompt,
+    },
+  ];
 
-    const response = await openai.createChatCompletion({
-        model,
-        temperature: 0,
-        messages: [
-            ...INITIAL_PROMPT,
-            ...messages
-        ]
-    })
-    return response;
-}
+  const response = await openai.createChatCompletion({
+    model,
+    temperature: 0,
+    messages: [...INITIAL_PROMPT, ...messages],
+  });
+  return response;
+};
 
 const getPrompt = (checkDescription: ICheckDescription) => {
-    return `"""
+  return `"""
     ${JSON.stringify(checkDescription)}
-    """`
-}
+    """`;
+};
 
 export async function POST(request: NextRequest) {
-    try {
-        const { text, lang } = await request.json();
-        const prompt = getPrompt({ text, lang });
-        const completion = await getCompletion(prompt);
-        const jsonResponse = completion.data.choices[0].message?.content ?? '';
-        return NextResponse.json(JSON.parse(jsonResponse), { status: 200 });
-    }
-    catch (error) {
-        return NextResponse.json(error, { status: 500 });
-    }
+  try {
+    const { text, lang } = await request.json();
+    const prompt = getPrompt({ text, lang });
+    const completion = await getCompletion(prompt);
+    const jsonResponse = completion.data.choices[0].message?.content ?? "";
+    return NextResponse.json(JSON.parse(jsonResponse), { status: 200 });
+  } catch (error) {
+    return NextResponse.json(error, { status: 500 });
+  }
 }

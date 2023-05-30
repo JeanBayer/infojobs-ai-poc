@@ -9,6 +9,7 @@ export interface User {
 
 export type Info = Pick<
   Candidate,
+  | "id"
   | "email"
   | "photo"
   | "name"

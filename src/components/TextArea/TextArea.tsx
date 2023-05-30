@@ -1,10 +1,9 @@
-import React from 'react'
+import React from "react";
 
-
-type  LabelProps = {
-  labelText: string
-}
-export const TextArea = ({labelText}:LabelProps) => {
+type LabelProps = {
+  labelText: string;
+};
+export const TextArea = ({ labelText }: LabelProps) => {
   return (
     <div className="form-control">
       <label className="input-group">
@@ -12,5 +11,5 @@ export const TextArea = ({labelText}:LabelProps) => {
         <textarea className="textarea w-96" placeholder="Bio"></textarea>
       </label>
     </div>
-  )
-}
+  );
+};

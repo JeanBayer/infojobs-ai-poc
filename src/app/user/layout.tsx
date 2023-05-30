@@ -2,7 +2,6 @@ import { Session } from "next-auth";
 import { headers } from "next/headers";
 import AuthContext from "@/app/AuthContext";
 
-
 async function getSession(cookie: string): Promise<Session> {
   const response = await fetch(`${process.env.NEXTAUTH_URL}/api/auth/session`, {
     headers: {
@@ -24,9 +23,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <AuthContext session={session}>
-          {children}
-        </AuthContext>
+        <AuthContext session={session}>{children}</AuthContext>
       </body>
     </html>
   );
