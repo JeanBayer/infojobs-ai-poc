@@ -21,7 +21,7 @@ export default async function RootLayout({
 }) {
   const session = await getSession(headers().get("cookie") ?? "");
   return (
-    <html lang="en">
+    <html lang="es">
       <body>
         <AuthContext session={session}>{children}</AuthContext>
       </body>

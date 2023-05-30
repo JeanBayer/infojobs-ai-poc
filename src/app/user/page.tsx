@@ -11,7 +11,7 @@ export default function ResumePage() {
           <div className="flex flex-col">
             {isLoading && <p>Cargando...</p>}
             {isError && <p>Hubo un error al cargar los datos</p>}
-            {user && <pre>{JSON.stringify(user)}</pre>}
+            {user && <pre>{JSON.stringify(user, null, 2)}</pre>}
           </div>
         </section>
       </div>

@@ -17,7 +17,7 @@ export function useUser(): {
     const registrarCandidato = async () => {
       const { result, error } = await addData(
         "candidatos",
-        data?.info?.id,
+        data?.info?.id.toString(),
         data
       );
 
