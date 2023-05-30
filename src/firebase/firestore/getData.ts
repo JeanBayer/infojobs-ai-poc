@@ -25,7 +25,7 @@ export default async function getDocument(collection: any, id: any) {
 }
 
 export async function getCandidatos() {
-  let result = [];
+  let result: any = [];
   let error;
 
   try {

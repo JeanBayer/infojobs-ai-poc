@@ -27,17 +27,19 @@ export default function CandidatosCompany({
   return (
     <main className="p-3">
       <section className="flex flex-wrap justify-center gap-4 ">
-        {candidatos?.map(({ info, probabilidad }) => (
-          <CardCandidato
-            key={info.id}
-            name={info.name}
-            probabilidad={probabilidad}
-            rol={"software engineer"}
-            company={company}
-            idOferta={idOferta}
-            id={info.id}
-          />
-        ))}
+        {candidatos?.map(
+          ({ info, probabilidad }: { info: any; probabilidad: any }) => (
+            <CardCandidato
+              key={info.id}
+              name={info.name}
+              probabilidad={probabilidad}
+              rol={"software engineer"}
+              company={company}
+              idOferta={idOferta}
+              id={info.id}
+            />
+          )
+        )}
       </section>
     </main>
   );
