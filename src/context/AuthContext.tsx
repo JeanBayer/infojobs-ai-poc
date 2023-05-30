@@ -51,6 +51,7 @@ export const AuthContextProvider = ({
         return console.log(error);
       }
       setCompany(result);
+      console.log(result);
     };
     handleGetData();
   }, [user]);
