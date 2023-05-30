@@ -3,13 +3,11 @@ import React, { useState } from "react";
 import { useAuthContext } from "@/context/AuthContext";
 import addData from "@/firebase/firestore/addData";
 
-
 const Form = () => {
+  const [puesto, setPuesto] = useState("");
 
-  const [puesto, setPuesto] = useState('');
-
-  const [descripcion, setDescripcion] = useState('');
-  const [localidad, setLocalidad] = useState('');
+  const [descripcion, setDescripcion] = useState("");
+  const [localidad, setLocalidad] = useState("");
   const [modalidad, setModalidad] = useState("");
   const [idioma, setIdioma] = useState("");
 
@@ -17,17 +15,17 @@ const Form = () => {
 
   const handleForm = async (e: React.FormEvent<HTMLFormElement>) => {
     // TODO: agregar la información de una oferta creada por la empresa
-    e.preventDefault()
+    e.preventDefault();
     const object = {
-      id: new Date().valueOf(),
+      id: new Date().valueOf().toString(),
       puesto,
       descripcion,
       localidad,
       modalidad,
       idioma,
-      postulados: []
+      postulados: [],
     };
-    company.ofertas.push(object)
+    company.ofertas.push(object);
     const { result, error } = await addData("empresas", user?.uid, company);
 
     if (error) {
@@ -36,13 +34,12 @@ const Form = () => {
     console.log(result);
   };
 
-
   return (
     <>
       <h3 className="my-10 text-2xl text-center text-white">
         Añadir oferta de trabajo
       </h3>
-      <form onSubmit={handleForm} className="flex form-control justify-center">
+      <form onSubmit={handleForm} className="flex justify-center form-control">
         <div className="grid grid-cols-1 mb-4">
           <div className="mb-4">
             <label className="input-group">
@@ -60,7 +57,7 @@ const Form = () => {
             <label className="input-group">
               <span>Descripción de la oferta</span>
               <textarea
-                className="textarea w-96  input-bordered"
+                className="textarea w-96 input-bordered"
                 placeholder="Bio"
                 value={descripcion}
                 onChange={(e) => setDescripcion(e.target.value)}
@@ -81,7 +78,7 @@ const Form = () => {
           </div>
           <div className="mb-4">
             <select
-              className="select w-full max-w-xs"
+              className="w-full max-w-xs select"
               value={modalidad}
               onChange={(e) => setModalidad(e.target.value)}
             >
@@ -97,9 +94,9 @@ const Form = () => {
           </div>
           <div className="mb-4">
             <select
-              className="select w-full max-w-xs"
+              className="w-full max-w-xs select"
               value={modalidad}
-              onChange={e => setIdioma(e.target.value)}
+              onChange={(e) => setIdioma(e.target.value)}
             >
               <option disabled value="">
                 Selecciona modalidad
@@ -120,13 +117,5 @@ const Form = () => {
 
 export default Form;
 
-const modalidades = [
-  "presincial",
-  "remoto",
-  "hibrido"
-]
-const idiomas = [
-  "español",
-  "inglés",
-  "frances"
-]
+const modalidades = ["presincial", "remoto", "hibrido"];
+const idiomas = ["español", "inglés", "frances"];

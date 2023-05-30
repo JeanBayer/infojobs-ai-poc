@@ -15,7 +15,9 @@ export default function OfertaLayout({
 
   const idOferta = useMemo(() => pathname.split("/")[3], [pathname]);
   const oferta = useMemo(() => {
-    return company?.ofertas?.find((oferta: any) => oferta.id === idOferta);
+    return company?.ofertas?.find(
+      (oferta: any) => oferta.id.toString() === idOferta
+    );
   }, [idOferta, company?.ofertas]);
 
   console.log({ oferta });
