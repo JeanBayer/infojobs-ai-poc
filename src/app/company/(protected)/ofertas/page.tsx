@@ -10,9 +10,19 @@ export default function OfertasCompany() {
     <main className="p-3">
       <HeaderLayout />
       <section>
-        {company?.ofertas?.map(({ id, puesto, descripcion }) => (
-          <CardJob key={id} name={puesto} description={descripcion} id={id} />
-        ))}
+        {company?.ofertas?.map(
+          ({
+            id,
+            puesto,
+            descripcion,
+          }: {
+            id: string;
+            puesto: string;
+            descripcion: string;
+          }) => (
+            <CardJob key={id} name={puesto} description={descripcion} id={id} />
+          )
+        )}
       </section>
     </main>
   );

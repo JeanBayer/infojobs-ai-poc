@@ -2,7 +2,7 @@
 
 import { BannerJob, BtnReload, HeaderLayout } from "@/components";
 import { useAuthContext } from "@/context/AuthContext";
-import { usePathname, useSelectedLayoutSegment } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 
 export default function OfertaLayout({
@@ -15,7 +15,7 @@ export default function OfertaLayout({
 
   const idOferta = useMemo(() => pathname.split("/")[3], [pathname]);
   const oferta = useMemo(() => {
-    return company?.ofertas?.find((oferta) => oferta.id === idOferta);
+    return company?.ofertas?.find((oferta: any) => oferta.id === idOferta);
   }, [idOferta, company?.ofertas]);
 
   console.log("layout");

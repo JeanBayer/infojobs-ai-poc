@@ -2,7 +2,7 @@ import { Stat } from "@/components";
 import getDocument from "@/firebase/firestore/getData";
 import Link from "next/link";
 
-const handlePostulado = async (id: string) => {
+const handlePostulado = async (id: string): Promise<any> => {
   const { result, error } = await getDocument("candidatos", id);
   if (error) {
     return console.log(error);
@@ -10,7 +10,13 @@ const handlePostulado = async (id: string) => {
   console.log(result);
   return result;
 };
-export default async function PostuladoCompany({ params }) {
+export default async function PostuladoCompany({
+  params,
+}: {
+  params: {
+    idPostulado: string;
+  };
+}) {
   const { idPostulado } = params;
   const { info, cvtext } = await handlePostulado(idPostulado);
 
