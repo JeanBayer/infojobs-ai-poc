@@ -11,8 +11,16 @@ export default function CrearOfertaCompany() {
 
   const handleForm = async () => {
     // TODO: agregar la información de una oferta creada por la empresa
-    const object = {};
-    const { result, error } = await addData("empresas", user?.uid, object);
+    const object = {
+      puesto: 'frontend',
+      descripcion: 'lorem',
+      localidad: 'localidad',
+      modalidad: 'online',
+      idioma: 'frances',
+      postulados: []
+    };
+    company.ofertas.push(object)
+    const { result, error } = await addData("empresas", user?.uid, company);
 
     if (error) {
       return console.log(error);
@@ -24,7 +32,8 @@ export default function CrearOfertaCompany() {
     <main className="p-3">
       <section>
         <HeaderLayout />
-        <Form />
+        <Form  />
+        <button onClick={handleForm}>probar</button>
       </section>
     </main>
   );

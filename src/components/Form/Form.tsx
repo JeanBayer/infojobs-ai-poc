@@ -26,7 +26,7 @@ const Form = () => {
             <SelectCustom labelText="Selecciona modalidad" list={modalidad} />
           </div>
           <div className="mb-4">
-            <SelectCustom labelText="Selecciona idiomas" list={idiomas} />
+            <SelectCustom labelText="Selecciona idioma" list={idiomas} />
           </div>
           <button className="btn btn-primary"> Enviar </button>
         </div>
