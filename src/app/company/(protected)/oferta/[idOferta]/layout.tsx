@@ -18,7 +18,7 @@ export default function OfertaLayout({
     return company?.ofertas?.find((oferta: any) => oferta.id === idOferta);
   }, [idOferta, company?.ofertas]);
 
-  console.log("layout");
+  console.log({ oferta });
   return (
     <main className="p-3">
       <HeaderLayout />

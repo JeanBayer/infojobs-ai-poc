@@ -5,7 +5,7 @@ import { useAuthContext } from "@/context/AuthContext";
 
 export default function OfertasCompany() {
   const { company } = useAuthContext();
-  console.log(company);
+
   return (
     <main className="p-3">
       <HeaderLayout />

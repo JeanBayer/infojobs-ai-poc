@@ -50,11 +50,11 @@ export const AuthContextProvider = ({
       if (error) {
         return console.log(error);
       }
-
+      console.log({ result })
       const normalizeOfertas = await Promise.all(
-        result?.ofertas.map(async (oferta: any) => {
-          const postulados = await Promise.all(
-            oferta.postulados.map(async (postulado: any) => {
+        result?.ofertas?.map(async (oferta: any) => {
+          const postulados = await Promise?.all(
+            oferta?.postulados?.map(async (postulado: any) => {
               const postulanteDoc = postulado.postulado;
               const postulanteData = await getDoc(postulanteDoc);
               const postuladoRef = postulanteData.data();
@@ -69,6 +69,7 @@ export const AuthContextProvider = ({
       const newCompany = { ...result, ofertas };
 
       setCompany(newCompany);
+      // setCompany(result);
     };
     handleGetData();
   }, [user]);
