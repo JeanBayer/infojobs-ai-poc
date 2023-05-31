@@ -60,7 +60,7 @@ export async function getCandidatos(idEmpresa: any, idOferta: any) {
     }
 
     const { data: prediccion } = await axios.post(
-      "http://localhost:3000/api/check",
+      "/api/check",
       {
         candidatos: result,
         oferta: empresa?.ofertas.find((oferta: any) => oferta.id === idOferta),
