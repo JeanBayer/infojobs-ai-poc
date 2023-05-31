@@ -14,6 +14,8 @@ export default function OfertaLayout({
   const pathname = usePathname();
 
   const idOferta = useMemo(() => pathname.split("/")[3], [pathname]);
+  const seccionPage = useMemo(() => pathname.split("/")[4], [pathname]);
+
   const oferta = useMemo(() => {
     return company?.ofertas?.find(
       (oferta: any) => oferta.id.toString() === idOferta
@@ -22,15 +24,17 @@ export default function OfertaLayout({
 
   return (
     <main className="p-3">
-      <HeaderLayout />
+      <HeaderLayout nameCompany={company?.nombre} />
       <BannerJob
         idOferta={idOferta}
         name={oferta?.puesto}
         description={oferta?.descripcion}
       />
-      <div className="flex justify-end">
-        <BtnReload />
-      </div>
+      {seccionPage === "candidatos" && (
+        <div className="flex justify-end my-2">
+          <BtnReload />
+        </div>
+      )}
       {children}
     </main>
   );

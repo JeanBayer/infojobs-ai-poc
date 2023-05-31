@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { useAuthContext } from "@/context/AuthContext";
-import { CardPostulante } from "@/components";
+import { CardPostulante, Loading } from "@/components";
 import { getPostulados } from "@/firebase/firestore/getData";
+import Link from "next/link";
 
 export default function PostuladosCompany({
   params,
@@ -32,38 +33,52 @@ export default function PostuladosCompany({
   return (
     <main className="p-3">
       <section className="flex flex-wrap justify-center gap-4 ">
-        {loading ? (
-          <div>loading</div>
-        ) : postulados.length > 0 ? (
-          postulados?.map(
-            ({
-              postulado,
-              probabilidad,
-            }: {
-              postulado: any;
-              probabilidad: number;
-            }) => (
-              <CardPostulante
-                idOferta={idOferta}
-                idPostulante={postulado?.info?.id}
-                key={postulado?.info?.id}
-                name={postulado?.info?.name}
-                probabilidad={probabilidad}
-                rol={"Software Engineer"}
-              />
-            )
-          )
-        ) : (
-          <div className="flex flex-col gap-2">
-            <h2 className="text-xl text-center text-gray-500">
-              No hay postulados
-            </h2>
-            <p className="text-sm text-center text-gray-500">
-              te invitamos a seleccionar los candidatos que mas te interesen y
-              aparecerán aquí
-            </p>
-          </div>
+        {loading && (
+          <>
+            <Loading />
+            <Loading />
+            <Loading />
+            <Loading />
+          </>
         )}
+        {postulados.length > 0
+          ? postulados?.map(
+              ({
+                postulado,
+                probabilidad,
+              }: {
+                postulado: any;
+                probabilidad: number;
+              }) => (
+                <CardPostulante
+                  idOferta={idOferta}
+                  idPostulante={postulado?.info?.id}
+                  key={postulado?.info?.id}
+                  name={postulado?.info?.name}
+                  probabilidad={probabilidad}
+                  rol={"Software Engineer"}
+                />
+              )
+            )
+          : !loading && (
+              <div className="card w-96 text-primary-content m-8 shadow-xl bg-primary  bg-base-10 mx-auto">
+                <div className="card-body">
+                  <h2 className="card-title">No hay postulados</h2>
+                  <p>
+                    te invitamos a que añadas los candidatos que tienen más
+                    probabilidad de ser contratados según nuestra IA
+                  </p>
+                  <div className="card-actions justify-end">
+                    <Link
+                      href={`/company/oferta/${idOferta}/candidatos`}
+                      className="btn"
+                    >
+                      Ver Candidatos
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            )}
       </section>
     </main>
   );

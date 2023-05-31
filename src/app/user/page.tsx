@@ -15,7 +15,7 @@ export default function ResumePage() {
           <p>
             {" "}
             Infojobs AI se encargará de mostrar tu perfil en las ofertas que
-            encages y recibirás un correo si una empresa a decidido conocerte.
+            encajes y recibirás un correo si una empresa a decidido conocerte.
           </p>
           <div className="card-actions justify-end">
             <Link href="/" className="btn">

@@ -100,7 +100,7 @@ const Form = () => {
               onChange={(e) => setIdioma(e.target.value)}
             >
               <option disabled value="">
-                Selecciona modalidad
+                Selecciona idioma
               </option>
               {idiomas.map((item) => (
                 <option key={item} value={item}>

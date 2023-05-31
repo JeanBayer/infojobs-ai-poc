@@ -30,6 +30,20 @@ const CardCandidato = ({
       probabilidad
     );
     setVisible(false);
+    // remove de localstorage el candidato
+    const cachePrediccion = JSON.parse(
+      localStorage.getItem("prediccion") || "{}"
+    );
+    const prediccionEncontrada = cachePrediccion.id === idOferta;
+    if (prediccionEncontrada) {
+      const newPrediccion = cachePrediccion.result.filter(
+        (candidato: any) => candidato.info.id !== id
+      );
+      localStorage.setItem(
+        "prediccion",
+        JSON.stringify({ ...cachePrediccion, result: newPrediccion })
+      );
+    }
   };
   return (
     <div
