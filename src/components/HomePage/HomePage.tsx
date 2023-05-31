@@ -21,7 +21,7 @@ export const HomePage = () => {
         <div className="mockup-window border mb-10 bg-base-300">
           <div className="flex justify-center px-4 py-16 bg-base-200">
             <Image
-              height="300"
+              height="100"
               width="800"
               src={img}
               alt="imagen de la pagina"
@@ -43,7 +43,7 @@ export const HomePage = () => {
             </figure>
             <div className="card-body">
               <h2 className="card-title text-white">
-                Gráficas y datos detallados
+                Gráficas y datos detallados (próximamente)
               </h2>
               <p>
                 Te proporcionamos gráficas y datos visuales sobre los
@@ -67,7 +67,7 @@ export const HomePage = () => {
             <div className="card-body">
               <h2 className="card-title text-white">Ofertas automáticas</h2>
               <p>
-                Envía correos a los mejores candidatos o a tod@s con un click y
+                Envía correos a el/la mejor candidat@ y
                 acuerda reuniones en tiempo record.
               </p>
             </div>
