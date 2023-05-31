@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { addCandidato } from "@/firebase/firestore/addData";
-import sendEmail from "@/email/sendEmail";
 
 type CardCandidato = {
   name: string;
