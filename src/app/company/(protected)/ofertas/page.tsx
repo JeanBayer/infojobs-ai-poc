@@ -9,7 +9,7 @@ export default function OfertasCompany() {
 
   return (
     <main className="p-3">
-      <HeaderLayout />
+      <HeaderLayout nameCompany={company?.nombre} />
       <section>
         {company?.ofertas?.map(
           ({

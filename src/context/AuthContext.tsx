@@ -5,6 +5,7 @@ import { onAuthStateChanged, getAuth, User } from "firebase/auth";
 import firebase_app from "@/firebase/config";
 import getDocument from "@/firebase/firestore/getData";
 import { getDoc } from "firebase/firestore";
+import { Loading } from "@/components";
 
 const auth = getAuth(firebase_app);
 
@@ -76,7 +77,11 @@ export const AuthContextProvider = ({
   return (
     <AuthContext.Provider value={{ user, company }}>
       {loading ? (
-        <div>Loading...</div>
+        <section className="flex flex-wrap justify-center gap-4 ">
+          <Loading />
+          <Loading />
+          <Loading />
+        </section>
       ) : user ? (
         children
       ) : (
