@@ -1,8 +1,11 @@
 "use client";
 import { useAuthContext } from "@/context/AuthContext";
 import { CardCandidato, Loading } from "@/components";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { getCandidatos } from "@/firebase/firestore/getData";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function CandidatosCompany({
   params,
@@ -27,6 +30,11 @@ export default function CandidatosCompany({
     traerCandidatos();
   }, [company, idOferta]);
 
+  const oferta = useMemo(
+    () => company?.ofertas?.find((oferta: any) => oferta?.id === idOferta),
+    [company, idOferta]
+  );
+
   return (
     <main className="p-3">
       <section className="flex flex-wrap justify-center gap-4 ">
@@ -38,28 +46,16 @@ export default function CandidatosCompany({
             <Loading />
           </>
         )}
-        {candidatos?.map(
-          ({
-            info,
-            probabilidad,
-            experience,
-          }: {
-            info: any;
-            probabilidad: any;
-            experience: any;
-          }) => (
-            <CardCandidato
-              key={info.id}
-              name={info.name}
-              probabilidad={probabilidad}
-              rol={experience[0].job}
-              company={company}
-              idOferta={idOferta}
-              id={info.id}
-            />
-          )
-        )}
+        {candidatos?.map((candidato: any) => (
+          <CardCandidato
+            key={candidato.info.id}
+            company={company}
+            oferta={oferta}
+            candidato={candidato}
+          />
+        ))}
       </section>
+      <ToastContainer />
     </main>
   );
 }
