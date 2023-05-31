@@ -12,18 +12,17 @@ export default function CandidatosCompany({
   };
 }) {
   const [candidatos, setCandidatos] = useState<any>([]);
+  const { company } = useAuthContext();
+  const { idOferta } = params;
 
   useEffect(() => {
+    if (!company || !company?.uid) return;
     const traerCandidatos = async () => {
-      const { result } = await getCandidatos();
-      console.log(result);
+      const { result } = await getCandidatos(company?.uid, idOferta);
       setCandidatos(result);
     };
     traerCandidatos();
-  }, []);
-
-  const { company } = useAuthContext();
-  const { idOferta } = params;
+  }, [company, idOferta]);
 
   return (
     <main className="p-3">

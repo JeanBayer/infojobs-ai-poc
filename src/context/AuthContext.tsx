@@ -50,25 +50,24 @@ export const AuthContextProvider = ({
       if (error) {
         return console.log(error);
       }
-      console.log({ result })
-      const normalizeOfertas = await Promise.all(
-        result?.ofertas?.map(async (oferta: any) => {
-          const postulados = await Promise?.all(
-            oferta?.postulados?.map(async (postulado: any) => {
-              const postulanteDoc = postulado.postulado;
-              const postulanteData = await getDoc(postulanteDoc);
-              const postuladoRef = postulanteData.data();
-              return { ...postulado, postulado: postuladoRef };
-            })
-          );
-          return { ...oferta, postulados };
-        })
-      );
+      // const normalizeOfertas = await Promise.all(
+      //   result?.ofertas?.map(async (oferta: any) => {
+      //     const postulados = await Promise?.all(
+      //       oferta?.postulados?.map(async (postulado: any) => {
+      //         const postulanteDoc = postulado.postulado;
+      //         const postulanteData = await getDoc(postulanteDoc);
+      //         const postuladoRef = postulanteData.data();
+      //         return { ...postulado, postulado: postuladoRef };
+      //       })
+      //     );
+      //     return { ...oferta, postulados };
+      //   })
+      // );
 
-      const ofertas = await Promise.all(normalizeOfertas);
-      const newCompany = { ...result, ofertas };
+      // const ofertas = await Promise.all(normalizeOfertas);
+      // const newCompany = { ...result, ofertas };
 
-      setCompany(newCompany);
+      setCompany(result);
       // setCompany(result);
     };
     handleGetData();

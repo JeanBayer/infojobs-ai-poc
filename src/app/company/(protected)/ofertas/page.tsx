@@ -25,9 +25,7 @@ export default function OfertasCompany() {
         )}
       </section>
       <section>
-        {
-          company?.ofertas?.length <= 0 && (<p>No hay ofertas</p>)
-        }
+        {company?.ofertas?.length <= 0 && <p>No hay ofertas</p>}
       </section>
     </main>
   );

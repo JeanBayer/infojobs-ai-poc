@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useSelectedLayoutSegment } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 type BannerJob = {
   name: string;
@@ -13,14 +14,17 @@ const BannerJob = ({
   idOferta = "",
 }: BannerJob) => {
   const [showMore, setShowMore] = useState(false);
-  const [mode, setMode] = useState("Candidatos");
+  const [mode, setMode] = useState("candidatos");
+
+  const param = useSelectedLayoutSegment();
+
+  useEffect(() => {
+    if (!param) return;
+    setMode(param);
+  }, [param]);
 
   const toggleShowMore = () => {
     setShowMore(!showMore);
-  };
-
-  const handleModeChange = () => {
-    setMode(mode === "Candidatos" ? "Postulantes" : "Candidatos");
   };
 
   return (
@@ -43,17 +47,15 @@ const BannerJob = ({
           <div className="btn-group">
             <Link
               href={`/company/oferta/${idOferta}/candidatos`}
-              className={`btn ${mode === "Candidatos" ? "btn-active" : ""}`}
-              onClick={handleModeChange}
+              className={`btn ${mode === "candidatos" ? "btn-active" : ""}`}
             >
               Candidatos
             </Link>
             <Link
               href={`/company/oferta/${idOferta}/postulados`}
-              className={`btn ${mode === "Postulantes" ? "btn-active" : ""}`}
-              onClick={handleModeChange}
+              className={`btn ${mode === "postulados" ? "btn-active" : ""}`}
             >
-              Postulantes
+              Postulados
             </Link>
           </div>
         </div>
