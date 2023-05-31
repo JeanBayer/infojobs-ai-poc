@@ -118,5 +118,5 @@ const Form = () => {
 
 export default Form;
 
-const modalidades = ["presincial", "remoto", "hibrido"];
-const idiomas = ["español", "inglés", "frances"];
+const modalidades = ["presencial", "remoto", "híbrido"];
+const idiomas = ["español", "inglés", "Frances"];
