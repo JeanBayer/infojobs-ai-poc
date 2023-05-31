@@ -28,7 +28,7 @@ const BannerJob = ({
   };
 
   return (
-    <div className="border border-gray-500 shadow-xl rounded-br-3xl rounded-bl-3xl">
+    <div className="border border-gray-500 shadow-xl rounded-br-3xl rounded-bl-3xl mb-6">
       <div className="card-body ">
         <h2 className="text-white card-title">{name}</h2>
         <div className="flex-auto">

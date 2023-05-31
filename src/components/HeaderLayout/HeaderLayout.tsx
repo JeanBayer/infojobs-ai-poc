@@ -14,7 +14,7 @@ const menu = [
     link: "/company/ofertas",
   },
 ];
-const HeaderLayout = ({ nameCompany = "infojobs" }) => {
+const HeaderLayout = ({ nameCompany = "" }) => {
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">

@@ -21,7 +21,12 @@ export const CardPostulante = ({
       <div className="card-body">
         <div className="flex justify-between">
           <h2 className="card-title">{name}</h2>
-          <span className="">{probabilidad}</span>
+          <div
+            className="tooltip"
+            data-tip="ℹ️ Esta probabilidad viene de analizar los datos de tu oferta con el candidato usando IA."
+          >
+            <button className="text-2xl font-bold">{probabilidad}%</button>
+          </div>
         </div>
         <p className="text-xs">{rol}</p>
         <div className="divider"></div>
