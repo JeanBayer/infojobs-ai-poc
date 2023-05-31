@@ -59,13 +59,10 @@ export async function getCandidatos(idEmpresa: any, idOferta: any) {
       return { result, error };
     }
 
-    const { data: prediccion } = await axios.post(
-      "/api/check",
-      {
-        candidatos: result,
-        oferta: empresa?.ofertas.find((oferta: any) => oferta.id === idOferta),
-      }
-    );
+    const { data: prediccion } = await axios.post("/api/check", {
+      candidatos: result,
+      oferta: empresa?.ofertas.find((oferta: any) => oferta.id === idOferta),
+    });
 
     const newResult = result.map((candidato: any) => {
       const { id } = candidato.info;
@@ -78,7 +75,10 @@ export async function getCandidatos(idEmpresa: any, idOferta: any) {
       candidato.probabilidad = prediccionEncontrada?.prob;
       return candidato;
     });
-    result = newResult;
+    result = [...newResult]
+      .sort((a: any, b: any) => b.probabilidad - a.probabilidad)
+      .slice(0, 6);
+      
     localStorage.setItem(
       "prediccion",
       JSON.stringify({ id: idOferta, result })
