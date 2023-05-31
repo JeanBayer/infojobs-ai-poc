@@ -44,8 +44,10 @@ const HeaderLayout = ({ nameCompany = "infojobs" }) => {
                 <a href={link}>{name}</a>
               </li>
             ))}
-            <li key='logout'>
-              <Link onClick={logout} href='/' >Log out</Link>
+            <li key="logout">
+              <Link onClick={logout} href="/">
+                Log out
+              </Link>
             </li>
           </ul>
         </div>

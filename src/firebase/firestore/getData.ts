@@ -24,18 +24,24 @@ export default async function getDocument(collection: any, id: any) {
   return { result, error };
 }
 
-export async function getCandidatos() {
+export async function getCandidatos(idEmpresa: any, idOferta: any) {
+  const { result: postulados } = await getPostulados(idEmpresa, idOferta);
+
   let result: any = [];
   let error;
 
   try {
     const collectionFirebase = collection(db, "candidatos");
-    console.log({ collectionFirebase });
     const querySnapshot = await getDocs(collectionFirebase);
     querySnapshot.forEach((doc) => {
       result.push({ ...doc.data(), probabilidad: 100 });
     });
-    console.log({ result });
+    result = result.filter(({ info: infoCandidato }: any) => {
+      const postuladoRepetido = postulados.find(
+        ({ postulado }: any) => postulado.info.id === infoCandidato.id
+      );
+      return !postuladoRepetido;
+    });
   } catch (e) {
     error = e;
   }

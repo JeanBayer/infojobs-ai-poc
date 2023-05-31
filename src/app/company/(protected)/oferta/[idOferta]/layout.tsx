@@ -20,7 +20,6 @@ export default function OfertaLayout({
     );
   }, [idOferta, company?.ofertas]);
 
-  console.log({ oferta });
   return (
     <main className="p-3">
       <HeaderLayout />

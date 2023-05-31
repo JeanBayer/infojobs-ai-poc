@@ -1,13 +1,10 @@
-
-"use client"
-import signIn from '@/firebase/auth/signin';
-import Link from 'next/link'
-import { useRouter } from 'next/navigation';
-import React, { useState } from 'react'
+"use client";
+import signIn from "@/firebase/auth/signin";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 
 const FormSignin = () => {
-
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
@@ -21,13 +18,10 @@ const FormSignin = () => {
       return console.log(error);
     }
 
-    // else successful
-    console.log(result);
     return router.push(`/company/ofertas`);
-  }
+  };
   return (
-
-    <div className='flex justify-center gap-5'>
+    <div className="flex justify-center gap-5">
       <div>
         <form onSubmit={handleForm} className="form">
           <div className="mb-4">
@@ -40,7 +34,7 @@ const FormSignin = () => {
                 name="email"
                 id="email"
                 placeholder="example@mail.com"
-                className="input input-bordered w-full max-w-xs"
+                className="w-full max-w-xs input input-bordered"
               />
             </label>
           </div>
@@ -54,19 +48,19 @@ const FormSignin = () => {
                 name="password"
                 id="password"
                 placeholder="password"
-                className="input input-bordered w-full max-w-xs"
+                className="w-full max-w-xs input input-bordered"
               />
             </label>
           </div>
-          <button type="submit" className="btn mb-3 btn-primary">
+          <button type="submit" className="mb-3 btn btn-primary">
             Sign In
           </button>
         </form>
-        <Link href='/company/signup' className="text-indigo-500  underline">Crear una cuenta</Link>
+        <Link href="/company/signup" className="text-indigo-500 underline">
+          Crear una cuenta
+        </Link>
       </div>
-
     </div>
   );
-
-}
-export default FormSignin
+};
+export default FormSignin;

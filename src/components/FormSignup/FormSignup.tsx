@@ -1,16 +1,14 @@
-"use client"
-import signUp from '@/firebase/auth/signup';
-import addData from '@/firebase/firestore/addData';
-import { useRouter } from 'next/navigation';
-import React, { useState } from 'react'
+"use client";
+import signUp from "@/firebase/auth/signup";
+import addData from "@/firebase/firestore/addData";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 
 const FormSignup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [nombre, setNombre] = useState("");
   const router = useRouter();
-
-
 
   const handleForm = async (event: any) => {
     event.preventDefault();
@@ -20,19 +18,21 @@ const FormSignup = () => {
       uid: result?.user.uid,
       nombre,
       correo: result?.user.email,
-      ofertas:[]
-    }
-    const { result: addDataResult, error: addDataError } = await addData("empresas", result?.user.uid, data);
+      ofertas: [],
+    };
+    const { result: addDataResult, error: addDataError } = await addData(
+      "empresas",
+      result?.user.uid,
+      data
+    );
     if (error || addDataError) {
       return console.log(error);
-    } 
-
-    console.log(result);
+    }
 
     return router.push(`/company/ofertas`);
   };
   return (
-    <div className='flex justify-center gap-5'>
+    <div className="flex justify-center gap-5">
       <form className="form">
         <label htmlFor="email">
           <p>Email</p>
@@ -43,7 +43,7 @@ const FormSignup = () => {
             name="email"
             id="email"
             placeholder="example@mail.com"
-            className="input input-bordered w-full max-w-xs"
+            className="w-full max-w-xs input input-bordered"
           />
         </label>
         <label>
@@ -56,7 +56,7 @@ const FormSignup = () => {
             value={nombre}
             id="nombre"
             placeholder="Infojobs"
-            className="input input-bordered w-full max-w-xs"
+            className="w-full max-w-xs input input-bordered"
           />
         </label>
         <label htmlFor="password">
@@ -68,15 +68,19 @@ const FormSignup = () => {
             name="password"
             id="password"
             placeholder="password"
-            className="input input-bordered w-full max-w-xs"
+            className="w-full max-w-xs input input-bordered"
           />
         </label>
-        <button onClick={handleForm} type="submit" className="btn mt-4 btn-primary">
+        <button
+          onClick={handleForm}
+          type="submit"
+          className="mt-4 btn btn-primary"
+        >
           Sign Up
         </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default FormSignup
+export default FormSignup;

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { addCandidato } from "@/firebase/firestore/addData";
 
 type CardCandidato = {
@@ -20,6 +20,8 @@ const CardCandidato = ({
   idOferta,
   id,
 }: CardCandidato) => {
+  const [visible, setVisible] = useState(true);
+
   const handleClick = async () => {
     const { result } = await addCandidato(
       company.uid,
@@ -27,10 +29,14 @@ const CardCandidato = ({
       idOferta,
       probabilidad
     );
-    console.log({ result });
+    setVisible(false);
   };
   return (
-    <div className="text-white border border-gray-500 card w-96 bg-primary-content">
+    <div
+      className={`text-white border border-gray-500 card w-96 bg-primary-content ${
+        visible ? "block" : "hidden"
+      }`}
+    >
       <div className="card-body">
         <div className="flex justify-between">
           <h2 className="card-title">{name}</h2>
@@ -40,7 +46,7 @@ const CardCandidato = ({
         <div className="divider"></div>
 
         <button className="btn btn-primary" onClick={handleClick}>
-          Añadir Candidato
+          Enviar Correo
         </button>
       </div>
     </div>

@@ -13,7 +13,6 @@ export function useUser(): {
 
   useEffect(() => {
     if (!data) return;
-    //TODO: agregar mensaje al usuario que se registro correctamente
     const registrarCandidato = async () => {
       const { result, error } = await addData(
         "candidatos",
@@ -24,7 +23,6 @@ export function useUser(): {
       if (error) {
         return console.log(error);
       }
-      console.log(result);
     };
     registrarCandidato();
   }, [data]);

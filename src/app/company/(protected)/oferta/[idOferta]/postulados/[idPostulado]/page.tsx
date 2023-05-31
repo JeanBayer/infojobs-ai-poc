@@ -7,7 +7,6 @@ const handlePostulado = async (id: string): Promise<any> => {
   if (error) {
     return console.log(error);
   }
-  console.log(result);
   return result;
 };
 export default async function PostuladoCompany({

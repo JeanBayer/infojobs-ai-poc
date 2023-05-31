@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useAuthContext } from "@/context/AuthContext";
 import addData from "@/firebase/firestore/addData";
+import { useRouter } from "next/navigation";
 
 const Form = () => {
   const [puesto, setPuesto] = useState("");
@@ -12,9 +13,9 @@ const Form = () => {
   const [idioma, setIdioma] = useState("");
 
   const { user, company } = useAuthContext();
+  const router = useRouter();
 
   const handleForm = async (e: React.FormEvent<HTMLFormElement>) => {
-    // TODO: agregar la información de una oferta creada por la empresa
     e.preventDefault();
     const object = {
       id: new Date().valueOf().toString(),
@@ -25,13 +26,13 @@ const Form = () => {
       idioma,
       postulados: [],
     };
-    company.ofertas.push(object);
+    company?.ofertas?.push(object);
     const { result, error } = await addData("empresas", user?.uid, company);
 
     if (error) {
       return console.log(error);
     }
-    console.log(result);
+    router.push(`/company/oferta/${object.id}/candidatos`);
   };
 
   return (
@@ -95,7 +96,7 @@ const Form = () => {
           <div className="mb-4">
             <select
               className="w-full max-w-xs select"
-              value={modalidad}
+              value={idioma}
               onChange={(e) => setIdioma(e.target.value)}
             >
               <option disabled value="">
