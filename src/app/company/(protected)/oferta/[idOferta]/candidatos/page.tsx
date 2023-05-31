@@ -1,6 +1,6 @@
 "use client";
 import { useAuthContext } from "@/context/AuthContext";
-import { CardCandidato } from "@/components";
+import { CardCandidato, Loading } from "@/components";
 import { useEffect, useState } from "react";
 import { getCandidatos } from "@/firebase/firestore/getData";
 
@@ -12,14 +12,17 @@ export default function CandidatosCompany({
   };
 }) {
   const [candidatos, setCandidatos] = useState<any>([]);
+  const [loading, setLoading] = useState(true);
   const { company } = useAuthContext();
   const { idOferta } = params;
 
   useEffect(() => {
     if (!company || !company?.uid) return;
     const traerCandidatos = async () => {
+      setLoading(true);
       const { result } = await getCandidatos(company?.uid, idOferta);
       setCandidatos(result);
+      setLoading(false);
     };
     traerCandidatos();
   }, [company, idOferta]);
@@ -27,6 +30,14 @@ export default function CandidatosCompany({
   return (
     <main className="p-3">
       <section className="flex flex-wrap justify-center gap-4 ">
+        {loading && (
+          <>
+            <Loading />
+            <Loading />
+            <Loading />
+            <Loading />
+          </>
+        )}
         {candidatos?.map(
           ({
             info,

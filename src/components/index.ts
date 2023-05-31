@@ -12,3 +12,4 @@ export * from "./Stat";
 export * from "./TextArea";
 export * from "./FormSignin";
 export * from "./FormSignup";
+export * from "./Loading";
