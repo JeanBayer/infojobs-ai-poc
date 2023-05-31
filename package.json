@@ -7,10 +7,16 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "preview-email": "email dev"
   },
   "dependencies": {
+    "@react-email/container": "0.0.8",
+    "@react-email/html": "0.0.4",
+    "@react-email/section": "0.0.9",
+    "@react-email/text": "0.0.5",
     "@reduxjs/toolkit": "^1.9.5",
+    "@sendgrid/mail": "^7.7.0",
     "@types/node": "20.1.7",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
@@ -24,10 +30,12 @@
     "infojobs-next-auth-provider": "^1.0.3",
     "next": "13.4.2",
     "next-auth": "^4.22.1",
+    "nodemailer": "^6.9.3",
     "openai": "^3.2.1",
     "postcss": "8.4.23",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-email": "1.9.3",
     "react-hook-form": "^7.43.9",
     "react-redux": "^8.0.5",
     "styled-components": "6.0.0-rc.1",
@@ -37,6 +45,7 @@
     "yup": "^1.1.1"
   },
   "devDependencies": {
+    "@types/nodemailer": "^6.4.8",
     "prettier": "^2.8.8"
   }
 }
