@@ -7,6 +7,7 @@ import {
   collection,
   getDocs,
 } from "firebase/firestore";
+import { createChatCompletion } from "@/lib/gpt";
 
 const db = getFirestore(firebase_app);
 export default async function getDocument(collection: any, id: any) {
@@ -61,10 +62,15 @@ export async function getCandidatos(idEmpresa: any, idOferta: any) {
 
     let prediccion: any = [];
     try {
-      const { data } = await axios.post("/api/check", {
+      // const { data } = await axios.post("/api/check", {
+      //   candidatos: result,
+      //   oferta: empresa?.ofertas.find((oferta: any) => oferta.id === idOferta),
+      // });
+      const data = await createChatCompletion({
         candidatos: result,
         oferta: empresa?.ofertas.find((oferta: any) => oferta.id === idOferta),
       });
+      console.log(data);
       prediccion = data;
     } catch (error) {
       console.log(error);

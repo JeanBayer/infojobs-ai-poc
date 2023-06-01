@@ -5,8 +5,6 @@ import {
   OpenAIApi,
 } from "openai";
 
-export const runtime = 'edge';
-
 const openaiToken = process.env.OPENAI_API_KEY;
 
 const configuration = new Configuration({ apiKey: openaiToken });
