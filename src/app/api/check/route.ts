@@ -4,6 +4,11 @@ import {
   ChatCompletionRequestMessageRoleEnum,
   OpenAIApi,
 } from "openai";
+
+export const config = {
+  runtime: "edge",
+};
+
 const openaiToken = process.env.OPENAI_API_KEY;
 
 const configuration = new Configuration({ apiKey: openaiToken });
