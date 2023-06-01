@@ -67,8 +67,8 @@ export const HomePage = () => {
             <div className="card-body">
               <h2 className="card-title text-white">Ofertas automáticas</h2>
               <p>
-                Envía correos a el/la mejor candidat@ y
-                acuerda reuniones en tiempo record.
+                Envía correos a el/la mejor candidat@ y acuerda reuniones en
+                tiempo record.
               </p>
             </div>
           </div>
