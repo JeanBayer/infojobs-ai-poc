@@ -4,6 +4,7 @@ import {
   ChatCompletionRequestMessageRoleEnum,
   OpenAIApi,
 } from "openai";
+
 const openaiToken = process.env.OPENAI_API_KEY;
 
 const configuration = new Configuration({ apiKey: openaiToken });
