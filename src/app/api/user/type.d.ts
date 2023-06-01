@@ -1,5 +1,5 @@
 export interface Candidate {
-  id: number;
+  id: string;
   email: string;
   emailHash: string;
   key: string;

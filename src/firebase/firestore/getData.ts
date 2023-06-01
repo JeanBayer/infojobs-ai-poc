@@ -66,9 +66,10 @@ export async function getCandidatos(idEmpresa: any, idOferta: any) {
 
     const newResult = result.map((candidato: any) => {
       const { id } = candidato.info;
-      const prediccionEncontrada = prediccion.find(
-        (candidatoPredicho: any) => candidatoPredicho.id === id
-      );
+      const prediccionEncontrada = prediccion.find((candidatoPredicho: any) => {
+        console.log({ candidatoPredicho, id });
+        return candidatoPredicho?.id?.toString() === id?.toString();
+      });
       if (!prediccionEncontrada)
         return { ...candidato, probabilidad: Math.floor(Math.random() * 101) };
 
@@ -78,7 +79,7 @@ export async function getCandidatos(idEmpresa: any, idOferta: any) {
     result = [...newResult]
       .sort((a: any, b: any) => b.probabilidad - a.probabilidad)
       .slice(0, 6);
-      
+
     localStorage.setItem(
       "prediccion",
       JSON.stringify({ id: idOferta, result })
