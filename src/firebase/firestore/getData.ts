@@ -59,19 +59,28 @@ export async function getCandidatos(idEmpresa: any, idOferta: any) {
       return { result, error };
     }
 
-    const { data: prediccion } = await axios.post("/api/check", {
-      candidatos: result,
-      oferta: empresa?.ofertas.find((oferta: any) => oferta.id === idOferta),
-    });
+    let prediccion: any = [];
+    try {
+      const { data } = await axios.post("/api/check", {
+        candidatos: result,
+        oferta: empresa?.ofertas.find((oferta: any) => oferta.id === idOferta),
+      });
+      prediccion = data;
+    } catch (error) {
+      console.log(error);
+    }
 
     const newResult = result.map((candidato: any) => {
       const { id } = candidato.info;
-      const prediccionEncontrada = prediccion.find((candidatoPredicho: any) => {
-        console.log({ candidatoPredicho, id });
-        return candidatoPredicho?.id?.toString() === id?.toString();
-      });
+      const prediccionEncontrada = prediccion.find(
+        (candidatoPredicho: any) =>
+          candidatoPredicho?.id?.toString() === id?.toString()
+      );
       if (!prediccionEncontrada)
-        return { ...candidato, probabilidad: Math.floor(Math.random() * 101) };
+        return {
+          ...candidato,
+          probabilidad: Math.floor(Math.random() * 101),
+        };
 
       candidato.probabilidad = prediccionEncontrada?.prob;
       return candidato;
